@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTU PYQs</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            background: linear-gradient(135deg, #0073e6, #00c6ff);
+            color: white;
+            padding: 2rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        /* Card container */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Individual card */
+        .card {
+            border-radius: 12px;
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            text-decoration: none;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            position: relative;
+        }
+
+        /* Icon */
+        .card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Card text */
+        .card h2 {
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+        }
+
+        /* Hover effect */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Subject Colors */
+        .card.cn {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+        }
+
+        .card.ada {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+        }
+
+        .card.se {
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+        }
+
+        .card.pds {
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+        }
+
+        .card.pe {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background-color: #0073e6;
+            color: white;
+            font-size: 1rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        footer p:hover {
+            transform: scale(1.2);
+        }
+
+        /* Responsive text */
+        @media (max-width: 500px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .card .icon {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .card {
+                padding: 1.5rem 1rem 1rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GTU PYQs Computer SEM 5</h1>
+        <p>Select a subject to view past year questions</p>
+    </header>
+
+    <main class="cards-container">
+        <a href="uploads/CN.html" class="card cn">
+            <div class="icon">💻</div>
+            <h2>Computer Networks (CN)</h2>
+            <p>View all past year questions for CN.</p>
+        </a>
+        <a href="uploads/ADA.html" class="card ada">
+            <div class="icon">📊</div>
+            <h2>Analysis & Design of Algorithms (ADA)</h2>
+            <p>View all past year questions for ADA.</p>
+        </a>
+        <a href="uploads/SE.html" class="card se">
+            <div class="icon">🛠️</div>
+            <h2>Software Engineering (SE)</h2>
+            <p>View all past year questions for SE.</p>
+        </a>
+        <a href="uploads/PDS.html" class="card pds">
+            <div class="icon">🔢</div>
+            <h2>Python for Data Science (PDS)</h2>
+            <p>View all past year questions for PDS.</p>
+        </a>
+        <a href="uploads/PE.html" class="card pe">
+            <div class="icon">📚</div>
+            <h2>Professional Ethics (PE)</h2>
+            <p>View all past year questions for PE.</p>
+        </a>
+    </main>
+
+    <footer>
+        <p>Made With ❤️ NIX</p>
+    </footer>
+</body>
+</html>
