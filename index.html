@@ -147,6 +147,10 @@
     </header>
 
     <main class="cards-container">
+        <section id="playlist-section" style="max-width: 900px; margin: 3rem auto; padding: 0 1rem;">
+            <h2 style="text-align:center; margin-bottom:2rem;">Computer Networks (CN) YouTube Playlist Videos</h2>
+            <div id="playlist-container"></div>
+        </section>
         <a href="uploads/CN.html" class="card cn">
             <div class="icon">💻</div>
             <h2>Computer Networks (CN)</h2>
@@ -177,5 +181,37 @@
     <footer>
         <p>Made With ❤️ NIX</p>
     </footer>
+
+    <script>
+        // YouTube Playlist ID
+        const playlistId = 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_';
+        const apiKey = 'YOUR_YOUTUBE_API_KEY'; // Replace with your YouTube Data API v3 key
+
+        // Fetch playlist videos
+        async function fetchPlaylistVideos() {
+            const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${playlistId}&key=${apiKey}`;
+            const response = await fetch(url);
+            const data = await response.json();
+            return data.items;
+        }
+
+        // Display videos
+        async function displayVideos() {
+            const videos = await fetchPlaylistVideos();
+            const container = document.getElementById('playlist-container');
+            videos.forEach(video => {
+                const videoDiv = document.createElement('div');
+                videoDiv.className = 'video-item';
+                videoDiv.style.marginBottom = '30px';
+                videoDiv.innerHTML = `
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/${video.snippet.resourceId.videoId}" frameborder="0" allowfullscreen></iframe>
+                    <p style="font-weight:bold; margin-top:10px;">${video.snippet.title}</p>
+                `;
+                container.appendChild(videoDiv);
+            });
+        }
+
+        displayVideos();
+    </script>
 </body>
 </html>
