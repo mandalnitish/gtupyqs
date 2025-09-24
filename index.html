@@ -67,6 +67,26 @@
     .card.se { background: linear-gradient(135deg, #43cea2, #185a9d); }
     .card.pds { background: linear-gradient(135deg, #f7971e, #ffd200); }
     .card.pe { background: linear-gradient(135deg, #ff416c, #ff4b2b); }
+
+    /* YouTube Playlist Styles */
+    #videos {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 0 10px;
+    }
+    .video {
+        margin-bottom: 20px;
+    }
+    iframe {
+        width: 100%;
+        height: 400px;
+    }
+    h2.playlist-title {
+        text-align: center;
+        margin: 2rem 0 1rem;
+        font-size: 2rem;
+    }
+
     footer {
         text-align: center;
         padding: 1.5rem 1rem;
@@ -80,6 +100,7 @@
         transition: transform 0.3s;
     }
     footer p:hover { transform: scale(1.2); }
+
     @media (max-width: 500px) {
         header h1 { font-size: 2rem; }
         header p { font-size: 1rem; }
@@ -135,6 +156,40 @@
     </a>
 
 </main>
+
+<!-- YouTube Playlist Section -->
+<h2 class="playlist-title">Computer Networks Playlist Videos</h2>
+<div id="videos"></div>
+
+<script>
+    const API_KEY = 'AIzaSyBKFIIYVQBOLDQwiu8Vbk80Cdw_LAfspyE';
+    const PLAYLIST_ID = 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_';
+    const videosDiv = document.getElementById('videos');
+
+    async function fetchPlaylistVideos(pageToken = '') {
+        const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${PLAYLIST_ID}&key=${API_KEY}&pageToken=${pageToken}`;
+        const response = await fetch(url);
+        const data = await response.json();
+
+        data.items.forEach(item => {
+            const videoId = item.snippet.resourceId.videoId;
+            const title = item.snippet.title;
+            const videoDiv = document.createElement('div');
+            videoDiv.classList.add('video');
+            videoDiv.innerHTML = `
+                <h3>${title}</h3>
+                <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+            `;
+            videosDiv.appendChild(videoDiv);
+        });
+
+        if (data.nextPageToken) {
+            fetchPlaylistVideos(data.nextPageToken);
+        }
+    }
+
+    fetchPlaylistVideos();
+</script>
 
 <footer>
     <p>Made With ❤️ NIX</p>
