@@ -6,29 +6,18 @@
 <title>GTU PYQs</title>
 <style>
     /* Reset */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f5f7fa;
-        color: #333;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f5f7fa; color: #333; }
+
     header {
         text-align: center;
         background: linear-gradient(135deg, #0073e6, #00c6ff);
         color: white;
         padding: 2rem 1rem;
     }
-    header h1 {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
-    }
-    header p {
-        font-size: 1.2rem;
-    }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.2rem; }
+
     .cards-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -46,21 +35,11 @@
         transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
         position: relative;
     }
-    .card .icon {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-    }
-    .card h2 {
-        margin-bottom: 0.5rem;
-        font-size: 1.5rem;
-    }
-    .card p {
-        font-size: 1rem;
-    }
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    }
+    .card .icon { font-size: 3rem; margin-bottom: 1rem; }
+    .card h2 { margin-bottom: 0.5rem; font-size: 1.5rem; }
+    .card p { font-size: 1rem; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+
     /* Subject Colors */
     .card.cn { background: linear-gradient(135deg, #ff7e5f, #feb47b); }
     .card.ada { background: linear-gradient(135deg, #6a11cb, #2575fc); }
@@ -69,23 +48,16 @@
     .card.pe { background: linear-gradient(135deg, #ff416c, #ff4b2b); }
 
     /* YouTube Playlist Styles */
-    #videos {
-        max-width: 800px;
-        margin: 2rem auto;
-        padding: 0 10px;
-    }
-    .video {
-        margin-bottom: 20px;
-    }
-    iframe {
-        width: 100%;
-        height: 400px;
-    }
+    #videos { max-width: 800px; margin: 2rem auto; padding: 0 10px; }
+    .video { margin-bottom: 20px; }
+    iframe { width: 100%; height: 400px; border: none; }
     h2.playlist-title {
         text-align: center;
         margin: 2rem 0 1rem;
         font-size: 2rem;
     }
+    h2.playlist-title a { color: inherit; text-decoration: none; }
+    h2.playlist-title a:hover { text-decoration: underline; }
 
     footer {
         text-align: center;
@@ -95,10 +67,7 @@
         font-size: 1rem;
         margin-top: 2rem;
     }
-    footer p {
-        display: inline-block;
-        transition: transform 0.3s;
-    }
+    footer p { display: inline-block; transition: transform 0.3s; }
     footer p:hover { transform: scale(1.2); }
 
     @media (max-width: 500px) {
@@ -106,9 +75,7 @@
         header p { font-size: 1rem; }
         .card .icon { font-size: 2.5rem; }
     }
-    @media (max-width: 400px) {
-        .card { padding: 1.5rem 1rem 1rem 1rem; }
-    }
+    @media (max-width: 400px) { .card { padding: 1.5rem 1rem 1rem 1rem; } }
 </style>
 </head>
 <body>
@@ -119,81 +86,69 @@
 </header>
 
 <main class="cards-container">
-
-    <!-- Computer Networks Card -->
     <a href="uploads/CN.html" class="card cn">
         <div class="icon">💻</div>
         <h2>Computer Networks (CN)</h2>
         <p>View all past year questions and playlist videos for CN.</p>
     </a>
-
-    <!-- ADA Card -->
     <a href="uploads/ADA.html" class="card ada">
         <div class="icon">📊</div>
         <h2>Analysis & Design of Algorithms (ADA)</h2>
         <p>View all past year questions for ADA.</p>
     </a>
-
-    <!-- SE Card -->
     <a href="uploads/SE.html" class="card se">
         <div class="icon">🛠️</div>
         <h2>Software Engineering (SE)</h2>
         <p>View all past year questions for SE.</p>
     </a>
-
-    <!-- PDS Card -->
     <a href="uploads/PDS.html" class="card pds">
         <div class="icon">🔢</div>
         <h2>Python for Data Science (PDS)</h2>
         <p>View all past year questions for PDS.</p>
     </a>
-
-    <!-- PE Card -->
     <a href="uploads/PE.html" class="card pe">
         <div class="icon">📚</div>
         <h2>Professional Ethics (PE)</h2>
         <p>View all past year questions for PE.</p>
     </a>
-
 </main>
 
 <!-- YouTube Playlist Section -->
 <h2 class="playlist-title">
-  <a href="https://www.youtube.com/playlist?list=PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_" target="_blank" style="color: inherit; text-decoration: none;">
+  <a href="https://www.youtube.com/playlist?list=PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_" target="_blank">
     Computer Networks Playlist Videos
   </a>
 </h2>
-
 <div id="videos"></div>
 
 <script>
-    const API_KEY = 'AIzaSyBKFIIYVQBOLDQwiu8Vbk80Cdw_LAfspyE';
-    const PLAYLIST_ID = 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_';
-    const videosDiv = document.getElementById('videos');
+const API_KEY = 'AIzaSyBKFIIYVQBOLDQwiu8Vbk80Cdw_LAfspyE';
+const PLAYLIST_ID = 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_';
+const videosDiv = document.getElementById('videos');
 
-    async function fetchPlaylistVideos(pageToken = '') {
-        const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${PLAYLIST_ID}&key=${API_KEY}&pageToken=${pageToken}`;
-        const response = await fetch(url);
-        const data = await response.json();
+async function fetchPlaylistVideos(pageToken = '') {
+    const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${PLAYLIST_ID}&key=${API_KEY}&pageToken=${pageToken}`;
+    const response = await fetch(url);
+    const data = await response.json();
 
-        data.items.forEach(item => {
-            const videoId = item.snippet.resourceId.videoId;
-            const title = item.snippet.title;
-            const videoDiv = document.createElement('div');
-            videoDiv.classList.add('video');
-            videoDiv.innerHTML = `
-                <h3>${title}</h3>
-                <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
-            `;
-            videosDiv.appendChild(videoDiv);
-        });
+    data.items.forEach(item => {
+        const videoId = item.snippet.resourceId.videoId;
+        const title = item.snippet.title;
+        const videoDiv = document.createElement('div');
+        videoDiv.classList.add('video');
+        videoDiv.innerHTML = `
+            <h3>${title}</h3>
+            <iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe>
+        `;
+        videosDiv.appendChild(videoDiv);
+    });
 
-        if (data.nextPageToken) {
-            fetchPlaylistVideos(data.nextPageToken);
-        }
+    if (data.nextPageToken) {
+        fetchPlaylistVideos(data.nextPageToken);
     }
+}
 
-    fetchPlaylistVideos();
+fetchPlaylistVideos();
 </script>
 
 <footer>
